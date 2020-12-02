@@ -1,1 +1,1 @@
-// viskas sukista i konteineri... isiaiskinti kaip isskirti
+// viskas sukista i konteinerius... isiaiskinti kaip isskirti

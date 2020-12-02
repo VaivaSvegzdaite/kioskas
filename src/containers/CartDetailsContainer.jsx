@@ -11,12 +11,9 @@ export default class CartDetailsContainer extends Component {
   }
 
   componentDidMount() {
-    let username = this.context.username;
-
+    let user = this.context.user;
     axios
-      .get(
-        `https://itpro2017.herokuapp.com/api/users/${username}/cart-products`
-      )
+      .get(`https://itpro2017.herokuapp.com/api/users/${user}/cart-products`)
       .then((res) => this.setState({ product: res.data }))
       .catch((err) => console.log(err));
   }

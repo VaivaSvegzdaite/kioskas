@@ -3,8 +3,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 export default class ProductAdministartionContainer extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       id: "",
       title: "",
@@ -20,7 +20,7 @@ export default class ProductAdministartionContainer extends Component {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = (e) => {
+  updateProduct = (e) => {
     e.preventDefault();
     axios
       .put(
@@ -35,28 +35,6 @@ export default class ProductAdministartionContainer extends Component {
         console.log(err);
       });
   };
-
-  // handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   axios.post("https://itpro2017.herokuapp.com/api/products", {
-  //     description: e.target.description.value,
-  //     id: 0,
-  //     image: e.target.image.value,
-  //     price: e.target.price.value,
-  //     quantity: e.target.quantity.value,
-  //     title: e.target.title.value,
-  //   });
-
-  //   this.setState({
-  //     title: "",
-  //     image: "",
-  //     description: "",
-  //     price: "",
-  //     quantity: "",
-  //   });
-
-  //   this.props.history.push("/");
-  // };
 
   componentDidMount() {
     axios
@@ -80,7 +58,7 @@ export default class ProductAdministartionContainer extends Component {
   render() {
     return (
       <div>
-        <form className="container my-5" onSubmit={this.handleSubmit}>
+        <form className="container my-5" onSubmit={this.updateProduct}>
           <div className="form-group">
             <label htmlFor="productTitle">Title:</label>
             <input
