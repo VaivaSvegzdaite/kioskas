@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import img from "../img/samsung-big.jpg";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import img from '../img/samsung-big.jpg';
 
 const ProductCardComponent = ({
   id,
@@ -13,7 +13,7 @@ const ProductCardComponent = ({
   return (
     <div
       className="card col-12 col-s-12 col-md-6 col-lg-3 mx-3 my-3"
-      style={{ width: "18rem" }}
+      style={{ width: '18rem' }}
     >
       <img src={img} className="card-img-top" alt={title} />
       <div className="card-body">

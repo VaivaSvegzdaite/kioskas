@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import img from "../img/samsung-big.jpg";
-import axios from "axios";
-import UserContext from "../services/UserContext";
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import img from '../img/samsung-big.jpg';
+import axios from 'axios';
+import UserContext from '../context/user/UserContext';
 
 const ProductDetailComponent = ({
   id,
@@ -12,19 +12,16 @@ const ProductDetailComponent = ({
   price,
   quantity,
 }) => {
-  const { username } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
-  const handleClick = (e) => {
+  const addProductToCart = (e) => {
     e.preventDefault();
     axios
-      .post(
-        `https://itpro2017.herokuapp.com/api/users/${username}/cart-products`,
-        {
-          id: id,
-          image: image,
-          title: title,
-        }
-      )
+      .post(`https://itpro2017.herokuapp.com/api/users/${user}/cart-products`, {
+        id: id,
+        image: image,
+        title: title,
+      })
       .then((res) => {
         console.log(res);
       })
@@ -34,7 +31,7 @@ const ProductDetailComponent = ({
   };
 
   return (
-    <div className="card" style={{ width: "18rem" }}>
+    <div className="card" style={{ width: '18rem' }}>
       <img src={img} className="card-img-top" alt={title} />
       <div className="card-body">
         <h5 className="card-title">{title} </h5>
@@ -42,7 +39,7 @@ const ProductDetailComponent = ({
         <p>{price}€</p>
         <p>{quantity}</p>
         <p>
-          <button className="btn btn-primary mx-4" onClick={handleClick}>
+          <button className="btn btn-primary mx-4" onClick={addProductToCart}>
             To Cart
           </button>
           <Link to={`/products`} className="btn btn-primary mx-4">

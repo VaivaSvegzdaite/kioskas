@@ -1,7 +1,8 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import UserLogin from '../context/user/UserLogin';
 
 const Navbar = () => {
   return (
@@ -15,18 +16,11 @@ const Navbar = () => {
             Admin
           </NavLink>
         </ul>
-        <form className="form-inline my-2 my-lg-0">
-          <input
-            className="form-control mr-sm-2"
-            type="text"
-            placeholder="Username"
-          />
-        </form>
+        <UserLogin />
         <ul className="nav navbar-nav navbar-right">
           <NavLink className="nav-link navbar-right" to="/cart-products">
-            <span>
-              <FontAwesomeIcon icon={faShoppingCart} /> 0 items
-            </span>
+            <FontAwesomeIcon icon={faShoppingCart} /> 0 items
+            <span className="text-light mx-2 ">0 items</span>
           </NavLink>
         </ul>
       </div>

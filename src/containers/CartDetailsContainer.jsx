@@ -1,14 +1,12 @@
-import React, { Component } from "react";
-import axios from "axios";
-import CartDetailsComponent from "../components/CartDetailsComponent";
+import React, { Component } from 'react';
+import axios from 'axios';
+import CartDetailsComponent from '../components/CartDetailsComponent';
+// import UserContext from '../context/user/UserContext';
 
 export default class CartDetailsContainer extends Component {
-  constructor() {
-    super();
-    this.state = {
-      products: [],
-    };
-  }
+  state = {
+    products: [],
+  };
 
   componentDidMount() {
     let user = this.context.user;

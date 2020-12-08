@@ -1,14 +1,11 @@
-import React, { Component } from "react";
-import axios from "axios";
-import ProductDetailComponent from "../components/ProductDetailComponent";
+import React, { Component } from 'react';
+import axios from 'axios';
+import ProductDetailComponent from '../components/ProductDetailComponent';
 
 export default class ProductDetailsContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      product: null,
-    };
-  }
+  state = {
+    product: null,
+  };
 
   componentDidMount() {
     axios
