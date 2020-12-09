@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import axios from "axios";
-import ProductCardComponent from "../components/ProductCardComponent";
+import React, { Component } from 'react';
+import axios from 'axios';
+import ProductCardComponent from '../components/ProductCardComponent';
 
 export default class ProductListContainer extends Component {
   constructor() {
@@ -12,7 +12,7 @@ export default class ProductListContainer extends Component {
 
   componentDidMount() {
     axios
-      .get("https://itpro2017.herokuapp.com/api/products")
+      .get('https://itpro2017.herokuapp.com/api/products')
       .then((prod) => {
         this.setState({ products: prod });
       })

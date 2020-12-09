@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import img from '../img/samsung-big.jpg';
 import axios from 'axios';
-import UserContext from '../context/user/UserContext';
+import UserContext from '../context/UserContext';
 
 const ProductDetailComponent = ({
   id,

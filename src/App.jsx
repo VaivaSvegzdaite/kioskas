@@ -4,15 +4,15 @@ import NavBar from './components/NavBarComponent';
 import ProductListContainer from './containers/ProductListContainer';
 import ProductDetailsContainer from './containers/ProductDetailsContainer';
 import ProductListAdministrationContainer from './containers/ProductListAdministrationContainer';
-import CartDetailsContainer from './containers/CartDetailsContainer';
+import UserCart from './containers/UserCart';
 import ProductAdministrationContainer from './containers/ProductAdministrationContainer';
 import CreateNewProductContainer from './containers/CreateNewProductContainer';
-import UserContext from './context/user/UserContext';
+import UserContext from './context/UserContext';
 
 export default class App extends Component {
   state = {
     user: '',
-    // quantityProductInCart: 0,
+    quantityProductInCart: 0,
   };
 
   logIn = (name) => {
@@ -23,9 +23,9 @@ export default class App extends Component {
     this.setState({ user: '' });
   };
 
-  // setQuantityInCart = (e) => {
-  //   this.setState({ quantityProductInCart: e });
-  // };
+  setQuantityProductInCart = (e) => {
+    this.setState({ quantityProductInCart: e });
+  };
 
   render() {
     document.title = 'E-shop';
@@ -35,10 +35,10 @@ export default class App extends Component {
           <UserContext.Provider
             value={{
               user: this.state.user,
-              // quantityProductInCart: this.state.quantityProductInCart,
-              // setQuantityInCart: this.setQuantityInCart,
               logIn: this.logIn,
               logOut: this.logOut,
+              quantityProductInCart: this.state.quantityProductInCart,
+              setQuantityProductInCart: this.setQuantityProductInCart,
             }}
           >
             <NavBar />
@@ -65,11 +65,7 @@ export default class App extends Component {
                 path="/admin/products/:id"
                 component={ProductAdministrationContainer}
               />
-              <Route
-                exact
-                path="/cart-products"
-                component={CartDetailsContainer}
-              />
+              <Route exact path="/cart-products" component={UserCart} />
               <Route path="*" component={NoMatch} />
             </Switch>
           </UserContext.Provider>
