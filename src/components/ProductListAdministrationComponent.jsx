@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import img from "../img/samsung-small.jpg";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import img from '../img/samsung-small.jpg';
 
 const ProductListAdministrationComponent = ({ id, ...otherProps }) => {
   return (

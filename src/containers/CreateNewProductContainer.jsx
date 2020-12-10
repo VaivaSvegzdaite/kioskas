@@ -1,16 +1,17 @@
-import React, { Component } from "react";
-import axios from "axios";
-import { withRouter } from "react-router-dom";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import axios from 'axios';
+import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class CreateNewProductContainer extends Component {
   state = {
     item: {
-      description: "",
-      image: "",
-      price: 0,
-      quantity: 0,
-      title: "",
+      id: 0,
+      title: '',
+      image: '',
+      description: '',
+      price: '',
+      quantity: '',
     },
   };
 
@@ -27,8 +28,8 @@ class CreateNewProductContainer extends Component {
     axios
       .post(`https://itpro2017.herokuapp.com/api/products`, this.state.item)
       .then((res) => {
-        console.log("Item created");
-        this.props.history.push("/");
+        console.log('Item created' + res);
+        this.props.history.push('/');
       })
       .catch((err) => console.log(err));
   };

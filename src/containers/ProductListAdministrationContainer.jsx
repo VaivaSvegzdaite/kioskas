@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import ProductListAdministrationComponent from "../components/ProductListAdministrationComponent";
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import ProductListAdministrationComponent from '../components/ProductListAdministrationComponent';
 
 export default class ProductListAdministrationContainer extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ export default class ProductListAdministrationContainer extends Component {
 
   componentDidMount() {
     axios
-      .get("https://itpro2017.herokuapp.com/api/products")
+      .get('https://itpro2017.herokuapp.com/api/products')
       .then((prod) => {
         this.setState({ products: prod });
       })
@@ -24,7 +24,6 @@ export default class ProductListAdministrationContainer extends Component {
 
   render() {
     const { data } = this.state.products;
-    console.log(data);
     if (data) {
       return (
         <div className="container mt-5">

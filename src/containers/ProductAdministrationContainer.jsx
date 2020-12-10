@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default class ProductAdministartionContainer extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      id: "",
-      title: "",
-      description: "",
-      image: "",
-      price: "",
-      quantity: "",
+      id: 0,
+      title: '',
+      image: '',
+      description: '',
+      price: '',
+      quantity: '',
     };
   }
 
@@ -23,17 +23,15 @@ export default class ProductAdministartionContainer extends Component {
   updateProduct = (e) => {
     e.preventDefault();
     axios
-      .put(
-        `https://itpro2017.herokuapp.com/api/products/${this.props.match.params.id}`,
-        this.state
-      )
-      .then((response) => {
-        console.log(response);
-        this.props.history.push("/admin/products");
+      .put(`https://itpro2017.herokuapp.com/api/products/${this.state.id}`, {
+        description: this.state.description,
+        id: this.state.id,
+        image: this.state.image,
+        price: this.state.price,
+        quantity: this.state.quantity,
+        title: this.state.title,
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .then(() => this.props.history.push('/admin/products'));
   };
 
   componentDidMount() {
@@ -43,6 +41,7 @@ export default class ProductAdministartionContainer extends Component {
       )
       .then((response) => {
         this.setState({
+          id: response.data.id,
           title: response.data.title,
           image: response.data.image,
           description: response.data.description,

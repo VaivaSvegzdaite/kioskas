@@ -23,7 +23,6 @@ export default class ProductListContainer extends Component {
 
   render() {
     const { data } = this.state.products;
-    console.log(data);
     if (data) {
       return (
         <div className="container-fluid mt-4">
